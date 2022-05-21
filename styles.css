@@ -1,0 +1,106 @@
+html{
+    overflow-x: hidden;
+}
+body{
+    background-image: url("pics/bg.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+.wrapper{
+    margin-top: 20px; /* Space it from the div above */
+    display: grid; /* We give its display property the grid value */
+    row-gap: 2rem; /* The rows will have a gap of 2 rem */
+    column-gap: 3rem; /* The columns will have a agap of 3 rem */
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    /*
+    * Grid template columns and grid template rows, sets up a custom grid template for the columns and rows
+    * We could set the value to "200px" and the grid would have one 200px wide column, we can add more columns: "200px 300px 100px"
+    * Now we have 3 columns, one 200px, one 300px and one 100px. But this is restrictive, we can instead use the "fr" unit
+    * 1fr is one fractional unit, so one would cover all the available space, using this we can create columns in a clean way
+    * so lets set the grid template columns to "1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr" this sets up our 12 columns
+    * But thats ugly so lets use the "repeat(how many times? ,  what?)" function: repeat(12, 1fr)
+    * Or we can use "auto-fill" or "auto-fit" (depends on what we need) as the first argument, and a range of values for the second
+    * We can do that with the "minmax(min ,  max)" function: minmax(300px, 1fr)
+    * The max is 1fr because on smaller devices we want the object to cover all the available space, while on a computer 300px enough
+    * It interpolates the width of the objects as much as it is able to, then when it crosses the min width, it gets pushed on the row below
+    * Final line: grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+     */
+}
+.object{
+    border-radius: 10px;
+    border: 5px solid rgb(101, 101, 101);
+    height: 280px;
+    text-align: center;
+    background-color: rgb(67, 67, 67);
+}
+.object:hover{
+    background-color: gray;
+    animation-duration: 1s;
+    animation-name: colPan;
+}
+@keyframes colPan {
+    from{
+        background-color: rgb(67, 67, 67);
+    }
+    to{
+        background-color: gray;
+    }
+}
+p{
+    color: rgb(255, 255, 255);
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 20px;
+    margin: 12px;
+}
+img{
+    border: 5px dashed rgb(0, 162, 255);
+    height: 58%;
+    width: 94%;
+    border-radius: 10px;
+}
+button{
+    border-radius: 5px;
+    border: 3px solid rgb(61, 194, 255);
+    font-size: large;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: white;
+    background-color: rgb(0, 179, 255);
+    width: 97.4%;
+    height: 18%;
+}
+button:hover{
+    animation-name: butHov;
+    animation-duration: 1s;
+    background-color: rgb(0, 123, 176);
+    animation-name: butHov;
+    animation-duration: 0.4s;
+    color: gray;
+}
+@keyframes butHov {
+    from{
+        color: white;
+        background-color: rgb(0, 179, 255);
+    }
+    to{
+        color: gray;
+        background-color: rgb(0, 123, 176);
+    }
+}
+.sub{
+    width: 99.3%;
+    height: 90px;
+    background-color: rgb(21, 134, 255);
+    height: fit-content;
+    margin-top: -5px;
+    text-align: center;
+    border: 5px double rgb(37, 179, 255);
+    border-radius: 30px;
+    padding-bottom: 5px;
+}
+h1{
+    padding-top: 10px;
+    margin: 10px;
+    color: white;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
